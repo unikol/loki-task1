@@ -23,20 +23,20 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Generate a token
-        id: generate-token
-        uses: actions/create-github-app-token@v2
-        with:
-          app-id: ${{ secrets.APP_ID }}
-          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+      # - name: Generate a token
+      #   id: generate-token
+      #   uses: actions/create-github-app-token@v2
+      #   with:
+      #     app-id: ${{ secrets.APP_ID }}
+      #     private-key: ${{ secrets.APP_PRIVATE_KEY }}
       - uses: actions/checkout@v6
       # Runs a set of commands using the runners shell
       - name: Test result file
         run: bash -e ./.github/files/test_result.sh      
       - name: Test config file
         run: bash -e ./.github/files/test_config.sh ./grafana.ini
-      - name: Final Step
-        env:
-          GH_TOKEN: ${{ steps.generate-token.outputs.token }}
-        run: |
-          gh repo edit $GITHUB_REPOSITORY --visibility private --accept-visibility-change-consequences
+      # - name: Final Step
+      #   env:
+      #     GH_TOKEN: ${{ steps.generate-token.outputs.token }}
+      #   run: |
+      #     gh repo edit $GITHUB_REPOSITORY --visibility private --accept-visibility-change-consequences
