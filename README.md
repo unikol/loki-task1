@@ -1,3 +1,4 @@
+[![Test Tasks](https://github.com/unikol/loki-task1/actions/workflows/main.yml/badge.svg)](https://github.com/unikol/loki-task1/actions/workflows/main.yml)
 # Tasks on the topic Grafana Loki
 
 ## Task1 
